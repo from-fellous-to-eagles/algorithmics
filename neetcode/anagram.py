@@ -23,3 +23,21 @@ class Solution(object):
     # space O(1)
     def is_anagram_sol1(self, s, t):
         return sorted(s) == sorted(t)
+
+    # author: Mass
+    # time O(n)
+    # space O(n)
+    def is_anagram_sol2(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+               
+        dictS = defaultdict(lambda: 0)
+        dictT = defaultdict(lambda: 0)
+        
+        for char in s:
+            dictS[char] += 1
+            
+        for char in t:
+            dictT[char] += 1
+        
+        return dictS == dictT
