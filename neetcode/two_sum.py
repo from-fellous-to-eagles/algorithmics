@@ -13,3 +13,15 @@ class Solution(object):
             else:
                 d[n] = i
 
+    
+    # author: Mass
+    # time O(n)
+    # space O(n)
+    def two_sum_sol1(self, nums: List[int], target: int) -> List[int]:
+        presentIntegers = defaultdict(lambda: -1)
+        for i, number in enumerate(nums):
+            presentIntegers[number] = i
+        
+        for i, number in enumerate(nums):
+            if presentIntegers[target - number] > 0 and i != presentIntegers[target - number]  :
+                return [i, presentIntegers[target - number]]
