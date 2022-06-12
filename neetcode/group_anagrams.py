@@ -13,3 +13,14 @@ class Solution:
             res[tuple(count)].append(s)
 
         return res.values()
+    
+    
+    # author: Saad, Othman & Mass
+    # time O(n^2log(n))
+    # space O(n)
+    def group_anagrams_sol1(self, strs: List[str]) -> List[List[str]]:
+        hashlist = defaultdict(list)
+        for w in strs:
+            hashlist[str(sorted(w))].append(w)
+            
+        return hashlist.values()
