@@ -24,3 +24,16 @@ class Solution:
             hashlist[str(sorted(w))].append(w)
             
         return hashlist.values()
+    
+    
+    # author: Othman
+    # m:= max len(w)
+    # time O(n*m) 
+    # space O(n)
+    # collisions are rare but possible
+    def group_anagrams_sol2(self, strs: List[str]) -> List[List[str]]:
+        hashlist = defaultdict(list)
+        for w in strs:
+            hashlist[sum([hash(c) for c in w])].append(w)
+            
+        return hashlist.values()
